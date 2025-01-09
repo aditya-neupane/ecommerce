@@ -26,7 +26,7 @@ const home = "Home",
 //homescreen strings
 
 const serachAnything = "Search anything....",
-    todayDeak = "Today's Deal",
+    todayDeal = "Today's Deal",
     flashSale = "Flash Sale",
     topSellers = "Top Sellers",
     brand = "Brand",
