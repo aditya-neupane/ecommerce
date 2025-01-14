@@ -1,16 +1,16 @@
 import 'package:ecommerce/consts/consts.dart';
 import 'package:flutter/material.dart';
 
-Widget featuredButton() {
+Widget featuredButton({String? title, icon}) {
   return Row(
     children: [
       Image.asset(
-        imgS1,
+        icon,
         width: 60,
         fit: BoxFit.fill,
       ),
       10.widthBox,
-      womenDress.text.fontFamily(semibold).color(darkFontGrey).make(),
+      title!.text.fontFamily(semibold).color(darkFontGrey).make(),
     ],
   )
       .box

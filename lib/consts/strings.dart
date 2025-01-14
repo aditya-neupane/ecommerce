@@ -10,6 +10,7 @@ const nameHint = "aditya neupane";
 const passwordHint = "*******";
 const forgetPass = "forget password";
 const login = "Log in";
+const logout = "logout";
 const signUp = "Sign up";
 const createNewAccount = "or, create a new account";
 const loginWith = "Login with";
@@ -37,4 +38,29 @@ const serachAnything = "Search anything....",
     babyGlasses = "Baby Glasses",
     tShirts = "T-Shirts",
     girlsDress = "Girls' Dress",
+    featureedProduct = "Featured Product",
     featuredCategories = "Featured Categories";
+
+//categories strings
+
+const womenClothing = "Women's Clothing",
+    menClothingFashion = "Men Closthing and Fashion",
+    compaAcces = "Computer & Accessories",
+    autoMobile = "Automobile",
+    kidToys = "Kids Toys",
+    sports = "Sports",
+    jwelory = "Jewelry",
+    cellPhones = "Cell Phones",
+    furniture = "Furniture";
+
+//items details strings
+const video = "Video",
+    reviews = "Reviews",
+    sellerPolicy = "Seller Policy",
+    returnPolicy = "Return Policy",
+    supportPolicy = "Support Policy",
+    productsYouMayLike = "Products you may also like";
+
+//profile strings
+
+const wishList = " My Wish List", orders = " My Orders", messages = "Messages";
