@@ -1,7 +1,7 @@
 import 'package:ecommerce/consts/consts.dart';
 import 'package:flutter/material.dart';
 
-Widget customTextField({String? title, String? hint, controller}) {
+Widget customTextField({String? title, String? hint, controller, isPAss}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -9,6 +9,8 @@ Widget customTextField({String? title, String? hint, controller}) {
       5.heightBox,
       TextFormField(
         // controller: controller,
+        obscureText: isPAss,
+        controller: controller,
         decoration: InputDecoration(
             hintStyle: TextStyle(fontFamily: semibold, color: textfieldGrey),
             hintText: hint,
