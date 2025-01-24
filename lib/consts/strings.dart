@@ -65,4 +65,8 @@ const video = "Video",
 
 //profile strings
 
-const wishList = " My WishList", orders = " My Orders", messages = "Messages";
+const wishList = " My WishList",
+    orders = " My Orders",
+    messages = "Messages",
+    oldpass = "Old Password",
+    newpass = "New Password";
