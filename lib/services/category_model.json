@@ -1,7 +1,7 @@
 {
     "categories": [
         {
-            "name": "Women Dress",
+            "name": "Women's Clothing",
         "subcategories": [
             "Wedding & Events",
             "Tops & Sets",
@@ -9,23 +9,23 @@
         ]
         },
         {
-            "name": "Men Clothing & Fashion","subcategories" :[
-"Outwear & Jackets",
-"Formal Dress",
-"Accessories"
+            "name": "Men Closthing and Fashion","subcategories" :[
+               "Outwear & Jackets",
+               "Formal Dress",
+            "Accessories"
             ]
         },
         {
             "name": "Computer & Accessories","subcategories" :[
-"Laptops ",
-"Gaming PC",
-"Official Eqipment"
+               "Laptops ",
+               "Gaming PC",
+               "Official Eqipment"
             ]
         },
         {
             "name" : "Automobile","subcategories" :[
                 "Cars",
-             
+                 "Motercycles",
                 "Bikes"
             ]
         },
@@ -37,12 +37,13 @@
             ]
         },
         {
-            "name" : "Toys", "subcategories" :[
-                "Cycling ",
-                "Sneakers",
-                "Swimming"
+            "name" : "Sports","subcategories" :[
+                "Baseball",
+                "Cricket",
+                "Football"
             ]
         },
+      
         {
             "name" : "Jewelry","subcategories" :[
                 "Necklace",
@@ -51,7 +52,7 @@
             ]
         },
         {
-            "name" : "Cell Phones & Tab","subcategories" :[
+            "name" : "Cell Phones","subcategories" :[
                 "Smart Phones",
                 "Tablets",
                 "Mobiles"

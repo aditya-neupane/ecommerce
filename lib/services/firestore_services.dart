@@ -9,4 +9,25 @@ class FirestoreServices {
         .where('id', isEqualTo: uid)
         .snapshots();
   }
+
+  // get product according to category
+  static getProducts(category) {
+    return firestore
+        .collection(productsCollection)
+        .where('p_category', isEqualTo: category)
+        .snapshots();
+  }
+
+  //get cart
+  static getCart(uid) {
+    return firestore
+        .collection(cartCollection)
+        .where('addded_by', isEqualTo: uid)
+        .snapshots();
+  }
+
+  //delte documnet
+  static deleteDocument(docId) {
+    return firestore.collection(cartCollection).doc(docId).delete();
+  }
 }
