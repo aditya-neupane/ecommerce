@@ -38,14 +38,14 @@ class AuthController extends GetxController {
   }
 
   //storing data method
-  storeUserData({name, password, email}) async {
+  void storeUserData({name, password, email}) async {
     DocumentReference store =
-        await firestore.collection(usersCollection).doc(currentUser!.uid);
+        firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
       'name': name,
       'password': password,
       'email': email,
-      'imagUrl': '',
+      'imgUrl': 'https://fakeimg.pl/600x400?text=Sample+image', // TODO: implement image upload in future.
       'id': currentUser!.uid,
       'cart_count': 0,
       'wishlist_count': 0,
@@ -54,7 +54,7 @@ class AuthController extends GetxController {
   }
 
   //signout method
-  signOut(context) async {
+  Future<void> signOut(context) async {
     try {
       await auth.signOut();
     } catch (e) {

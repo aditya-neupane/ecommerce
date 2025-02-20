@@ -15,31 +15,22 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
-
     var navbarItem = [
       BottomNavigationBarItem(
-          icon: Image.asset(
-            icHome,
-            width: 26,
-          ),
+          icon: Icon(Icons.home_outlined, size: 26),
+          activeIcon: Icon(Icons.home, size: 26, color: redColor),
           label: home),
       BottomNavigationBarItem(
-          icon: Image.asset(
-            icCategories,
-            width: 26,
-          ),
+          icon: Icon(Icons.category_outlined, size: 26),
+          activeIcon: Icon(Icons.category, size: 26, color: redColor),
           label: categories),
       BottomNavigationBarItem(
-          icon: Image.asset(
-            icCart,
-            width: 26,
-          ),
+          icon: Icon(Icons.shopping_cart_outlined, size: 26),
+          activeIcon: Icon(Icons.shopping_cart, size: 26, color: redColor),
           label: cart),
       BottomNavigationBarItem(
-          icon: Image.asset(
-            icProfile,
-            width: 26,
-          ),
+          icon: Icon(Icons.person_outline, size: 26),
+          activeIcon: Icon(Icons.person, size: 26, color: redColor),
           label: account),
     ];
 
