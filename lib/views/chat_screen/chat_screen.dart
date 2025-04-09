@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/consts/consts.dart';
 import 'package:ecommerce/controllers/chats_controller.dart';
 import 'package:ecommerce/services/firestore_services.dart';
@@ -16,7 +17,11 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: "Title".text.fontFamily(semibold).color(darkFontGrey).make(),
+        title: "${controller.friendName}"
+            .text
+            .fontFamily(semibold)
+            .color(darkFontGrey)
+            .make(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -31,8 +36,8 @@ class ChatScreen extends StatelessWidget {
                       child: StreamBuilder(
                         stream: FirestoreServices.getChatMessages(
                             controller.chatDocId.toString()),
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (!snapshot.hasData) {
                             return Center(
                               child: loadingIndicator(),
@@ -46,9 +51,16 @@ class ChatScreen extends StatelessWidget {
                             );
                           } else {
                             return ListView(
-                                // children: snapshot.data!.docs
-                                //     .mapIndexed((currentValue, index)),
-                                );
+                              children: snapshot.data!.docs
+                                  .mapIndexed((currentValue, index) {
+                                var data = snapshot.data!.docs[index];
+                                return Align(
+                                    alignment: data['uid'] == currentUser!.uid
+                                        ? Alignment.centerRight
+                                        : Alignment.centerLeft,
+                                    child: senderBubble(data));
+                              }).toList(),
+                            );
                           }
                         },
                       ),

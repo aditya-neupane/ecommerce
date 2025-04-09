@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/consts/consts.dart';
 import 'package:ecommerce/controllers/cart_controller.dart';
 import 'package:ecommerce/services/firestore_services.dart';
+import 'package:ecommerce/views/cartScreen/shipping_screen.dart';
 import 'package:ecommerce/widgets_common/loadind_indicator.dart';
 import 'package:ecommerce/widgets_common/our_button.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,17 @@ class CartScreen extends StatelessWidget {
     var controller = Get.put(CartController());
     return Scaffold(
       backgroundColor: whiteColor,
+      bottomNavigationBar: SizedBox(
+        height: 60,
+        child: ourButton(
+          color: redColor,
+          onPress: () {
+            Get.to(() => ShippingDetails());
+          },
+          textColor: whiteColor,
+          title: "Proceed to checkout",
+        ),
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: "Shopping Cart"
@@ -93,14 +105,14 @@ class CartScreen extends StatelessWidget {
                       .roundedSM
                       .make(),
                   10.heightBox,
-                  SizedBox(
-                      width: context.screenWidth - 60,
-                      child: ourButton(
-                        color: redColor,
-                        onPress: () {},
-                        textColor: whiteColor,
-                        title: "Proceed to checkout",
-                      )),
+                  // SizedBox(
+                  //     width: context.screenWidth - 60,
+                  //     child: ourButton(
+                  //       color: redColor,
+                  //       onPress: () {},
+                  //       textColor: whiteColor,
+                  //       title: "Proceed to checkout",
+                  //     )),
                 ],
               ),
             );

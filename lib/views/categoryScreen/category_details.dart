@@ -106,9 +106,13 @@ class CategoryDetails extends StatelessWidget {
                                 .padding(EdgeInsets.all(12))
                                 .make()
                                 .onTap(() {
-                              Get.to(() => ItemsDetails(
+                              controller.checkIfFav(data[index]);
+                              Get.to(
+                                () => ItemsDetails(
                                   title: "${data[index]['p_name']}",
-                                  data: data[index]));
+                                  data: data[index],
+                                ),
+                              );
                             });
                           }))
                 ],

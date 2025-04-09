@@ -27,6 +27,9 @@ class AuthController extends GetxController {
   //signup method
   Future<UserCredential?> signupMethod(email, password, context) async {
     UserCredential? userCredential;
+    if (!email.toString().contains(RegExp(r'^[\w\.-]+@[\w\.-]+\.\w{2,4}$'))) {
+      return userCredential;
+    }
 
     try {
       userCredential = await auth.createUserWithEmailAndPassword(
@@ -45,7 +48,8 @@ class AuthController extends GetxController {
       'name': name,
       'password': password,
       'email': email,
-      'imgUrl': 'https://fakeimg.pl/600x400?text=Sample+image', // TODO: implement image upload in future.
+      'imgUrl':
+          'https://fakeimg.pl/600x400?text=Sample+image', // TODO: implement image upload in future.
       'id': currentUser!.uid,
       'cart_count': 0,
       'wishlist_count': 0,
