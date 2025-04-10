@@ -41,13 +41,7 @@ class CategoryDetails extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        image!,
-                        width: double.infinity,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ).box.roundedSM.clip(Clip.antiAlias).make(),
-                      10.heightBox,
+                      150.heightBox,
                       SingleChildScrollView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
@@ -67,8 +61,6 @@ class CategoryDetails extends StatelessWidget {
                                     .margin(EdgeInsets.symmetric(horizontal: 4))
                                     .make())),
                       ),
-
-                      //items container
                       20.heightBox,
                       Expanded(
                           child: GridView.builder(
@@ -98,7 +90,8 @@ class CategoryDetails extends StatelessWidget {
                                         .color(darkFontGrey)
                                         .make(),
                                     10.heightBox,
-                                    "${data[index]['p_price']}"
+                                    (data[index]['p_price'])
+                                        .toString()
                                         .numCurrency
                                         .text
                                         .color(redColor)

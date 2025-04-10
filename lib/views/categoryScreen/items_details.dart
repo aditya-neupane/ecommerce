@@ -5,22 +5,18 @@ import 'package:ecommerce/views/chat_screen/chat_screen.dart';
 import 'package:ecommerce/widgets_common/our_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class ItemsDetails extends StatelessWidget {
   final String? title;
   final dynamic data;
-  const ItemsDetails({Key? key, required this.title, this.data})
-      : super(key: key);
+  const ItemsDetails({super.key, required this.title, this.data});
 
   @override
   Widget build(BuildContext context) {
     var controller = Get.find<ProductController>();
-    print(Colors.purple.value);
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      onPopInvoked: (didPop) {
         controller.resetValues();
-        return true;
       },
       child: Scaffold(
         backgroundColor: whiteColor,
@@ -43,10 +39,8 @@ class ItemsDetails extends StatelessWidget {
                   onPressed: () {
                     if (controller.isFav.value) {
                       controller.removeFromWishList(data.id, context);
-                      // controller.isFav.value = false;
                     } else {
                       controller.addToWishList(data.id, context);
-                      // controller.isFav.value = true;
                     }
                   },
                   icon: Icon(
@@ -100,7 +94,8 @@ class ItemsDetails extends StatelessWidget {
                     ),
 
                     10.heightBox,
-                    "${data['p_price']}"
+                    data['p_price']
+                        .toString()
                         .numCurrency
                         .text
                         .color(redColor)
@@ -208,7 +203,8 @@ class ItemsDetails extends StatelessWidget {
                                         onPressed: () {
                                           controller.decreaseQuantity();
                                           controller.calculateToatalPrice(
-                                              int.parse(data['p_price']));
+                                              int.parse(
+                                                  data['p_price'].toString()));
                                         },
                                         icon: Icon(Icons.remove)),
                                     controller.quantity.value.text
@@ -219,10 +215,12 @@ class ItemsDetails extends StatelessWidget {
                                     IconButton(
                                         onPressed: () {
                                           controller.increaseQuantity(
-                                            int.parse(data['p_quantity']),
+                                            int.parse(
+                                                data['p_quantity'].toString()),
                                           );
                                           controller.calculateToatalPrice(
-                                              int.parse(data['p_price']));
+                                              int.parse(
+                                                  data['p_price'].toString()));
                                         },
                                         icon: Icon(Icons.add)),
                                     10.widthBox,
