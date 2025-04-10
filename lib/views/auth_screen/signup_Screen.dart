@@ -27,7 +27,7 @@ class _SignupScreenState extends State<SignupScreen> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var PasswordReTypeController = TextEditingController();
+  var passwordReTypeController = TextEditingController();
 
   // @override
   // void initState() {
@@ -76,7 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         customTextField(
                             hint: passwordHint,
                             title: retypePassword,
-                            controller: PasswordReTypeController,
+                            controller: passwordReTypeController,
                             isPAss: true),
                         Align(
                             alignment: Alignment.centerRight,
