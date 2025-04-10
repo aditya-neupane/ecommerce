@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../auth_screen/login_screen.dart';
+import 'home.dart';
 import 'home_Screen.dart';
 
 class AuthenticatePage extends StatelessWidget {
@@ -21,7 +22,7 @@ class AuthenticatePage extends StatelessWidget {
             child: Text("Something went wrong!"),
           );
         } else if (snapshot.hasData) {
-          return const HomeScreen();
+          return Home();
         } else {
           return const LoginScreen();
         }

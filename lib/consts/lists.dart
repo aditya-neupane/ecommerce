@@ -15,27 +15,28 @@ const featuredTitles1 = [womenDress, girlsDress, girlsWatches];
 const featuredTitles2 = [babyGlasses, mobilePhone, tShirts];
 
 const categoriesList = [
-  womenClothing,
-  menClothingFashion,
-  compaAcces,
-  autoMobile,
-  kidToys,
-  sports,
-  jwelory,
-  cellPhones,
-  furniture
+  "Women's Clothing",
+  "Men Clothing and Fashion",
+  "Computer & Accessories",
+  "Automobile",
+  "Kids Toys",
+  "Sports",
+  "Jewelry",
+  "Cell Phones",
+  "Furniture"
 ];
 
 const categoryImages = [
-  imgFc1,
-  imgFc2,
-  imgFc3,
-  imgFc4,
-  imgFc5,
-  imgFc6,
-  imgFc7,
+  womenDressImg,
+  mensClothingImg,
+  computerAssesories,
+  carsImg,
+  kidsToys,
+  shortsImg,
+  jewleryImg,
+  phonesImg,
+  furnitureImg,
   imgFc8,
-  imgFc9
 ];
 
 const itemDetailButtonList = [

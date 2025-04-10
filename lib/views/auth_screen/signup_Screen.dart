@@ -143,6 +143,10 @@ class _SignupScreenState extends State<SignupScreen> {
                                           .signupMethod(emailController.text,
                                               passwordController.text, context)
                                           .then((value) {
+                                        if (value == null) {
+                                          throw Exception(
+                                              "Validation failed, please try again with proper data.");
+                                        }
                                         return controller.storeUserData(
                                           email: emailController.text,
                                           password: passwordController.text,

@@ -1,69 +1,40 @@
 {
-    "categories": [
-        {
-            "name": "Women's Clothing",
-        "subcategories": [
-            "Wedding & Events",
-            "Tops & Sets",
-            "Watches"
-        ]
-        },
-        {
-            "name": "Men Clothing and Fashion","subcategories" :[
-               "Outwear & Jackets",
-               "Formal Dress",
-            "Accessories"
-            ]
-        },
-        {
-            "name": "Computer & Accessories","subcategories" :[
-               "Laptops ",
-               "Gaming PC",
-               "Official Eqipment"
-            ]
-        },
-        {
-            "name" : "Automobile","subcategories" :[
-                "Cars",
-                 "Motercycles",
-                "Bikes"
-            ]
-        },
-        {
-            "name" : "Kids Toys","subcategories" :[
-                "Shoes and Bags",
-                "Baby Clothing",
-                "Girls Toys"
-            ]
-        },
-        {
-            "name" : "Sports","subcategories" :[
-                "Baseball",
-                "Cricket",
-                "Football"
-            ]
-        },
-      
-        {
-            "name" : "Jewelry","subcategories" :[
-                "Necklace",
-                "Gold",
-                "Earings"
-            ]
-        },
-        {
-            "name" : "Cell Phones","subcategories" :[
-                "Smart Phones",
-                "Tablets",
-                "Mobiles"
-            ]
-        },
-        {
-            "name" : "Furniture","subcategories" :[
-                "Sofas",
-                "Chairs",
-                "Tables"
-            ] 
-        }
-    ]
+  "categories": [
+    {
+      "name": "Women's Clothing",
+      "subcategories": ["Wedding & Events", "Tops & Sets", "Watches"]
+    },
+    {
+      "name": "Men Clothing and Fashion",
+      "subcategories": ["Outwear & Jackets", "Formal Dress", "Accessories"]
+    },
+    {
+      "name": "Computer & Accessories",
+      "subcategories": ["Laptops", "Gaming PC", "Official Equipment"]
+    },
+    {
+      "name": "Automobile",
+      "subcategories": ["Cars", "Motorcycles", "Bikes"]
+    },
+    {
+      "name": "Kids Toys",
+      "subcategories": ["Shoes and Bags", "Baby Clothing", "Girls Toys"]
+    },
+    {
+      "name": "Sports",
+      "subcategories": ["Baseball", "Cricket", "Football"]
+    },
+    {
+      "name": "Jewelry",
+      "subcategories": ["Necklace", "Gold", "Earings"]
+    },
+    {
+      "name": "Cell Phones",
+      "subcategories": ["Smart Phones", "Tablets", "Mobiles"]
+    },
+    {
+      "name": "Furniture",
+      "subcategories": ["Sofas", "Chairs", "Tables"]
+    }
+  ]
 }
