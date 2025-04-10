@@ -21,7 +21,8 @@ class ProfileScreen extends StatelessWidget {
       child: Scaffold(
         body: StreamBuilder(
           stream: FirestoreServices.getUser(currentUser!.uid),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) {
               return const Center(
                 child: CircularProgressIndicator(
@@ -37,11 +38,12 @@ class ProfileScreen extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Colors.red, Colors.redAccent],
+                    colors: [Color(0xFFE53935), Color(0xFFEF5350)],
                   ),
                 ),
                 child: Column(
                   children: [
+                    // App Bar
                     Container(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
@@ -51,31 +53,51 @@ class ProfileScreen extends StatelessWidget {
                             "Profile",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 24,
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
+                              letterSpacing: 1.2,
                             ),
                           ),
-                          IconButton(
-                            icon: const Icon(Icons.edit, color: whiteColor),
-                            onPressed: () {
-                              controller.nameController.text = data['name'];
-                              Get.to(() => EditProfileScreen(data: data));
-                            },
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white.withAlpha(51),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(Icons.edit, color: whiteColor),
+                              onPressed: () {
+                                controller.nameController.text = data['name'];
+                                Get.to(() => EditProfileScreen(data: data));
+                              },
+                            ),
                           ),
                         ],
                       ),
                     ),
 
+                    // Profile Info
                     Container(
-                      padding: const EdgeInsets.all(16.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(38),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.white.withAlpha(51)),
+                      ),
                       child: Row(
                         children: [
                           Hero(
                             tag: 'profile',
                             child: Container(
+                              padding: const EdgeInsets.all(3),
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white, width: 2),
                                 borderRadius: BorderRadius.circular(75),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Colors.white.withAlpha(230),
+                                    Colors.white.withAlpha(102),
+                                  ],
+                                ),
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(75),
@@ -100,21 +122,21 @@ class ProfileScreen extends StatelessWidget {
                                     .text
                                     .fontFamily(semibold)
                                     .white
-                                    .size(20)
-                                    .make(),
-                                5.heightBox,
-                                "${data['email']}"
-                                    .text
-                                    .white
-                                    .size(16)
+                                    .size(24)
                                     .make(),
                                 10.heightBox,
-                                OutlinedButton.icon(
-                                  style: OutlinedButton.styleFrom(
-                                    side: const BorderSide(color: whiteColor),
+                                "${data['email']}".text.white.size(16).make(),
+                                15.heightBox,
+                                ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                    foregroundColor: redColor,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 16,
-                                      vertical: 8,
+                                      horizontal: 20,
+                                      vertical: 12,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
                                     ),
                                   ),
                                   onPressed: () async {
@@ -122,10 +144,13 @@ class ProfileScreen extends StatelessWidget {
                                         .signOut(context);
                                     Get.offAll(() => const LoginScreen());
                                   },
-                                  icon: const Icon(Icons.logout,
-                                      color: Colors.white),
-                                  label:
-                                      logout.text.white.fontFamily(semibold).make(),
+                                  icon: const Icon(Icons.logout, size: 20),
+                                  label: Text(
+                                    logout,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -136,28 +161,37 @@ class ProfileScreen extends StatelessWidget {
 
                     30.heightBox,
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 20),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.white.withAlpha(38),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.white.withAlpha(51)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          detailsCard(
-                            count: data['cart_count'].toString(),
-                            title: "in your cart",
-                            width: context.screenWidth / 3.4,
+                          Expanded(
+                            child: detailsCard(
+                              count: data['cart_count'].toString(),
+                              title: "Cart",
+                              width: context.screenWidth / 3.8,
+                            ),
                           ),
-                          detailsCard(
-                            count: data['wishlist_count'].toString(),
-                            title: "in your wishlist",
-                            width: context.screenWidth / 3.4,
+                          Expanded(
+                            child: detailsCard(
+                              count: data['wishlist_count'].toString(),
+                              title: "Wishlist",
+                              width: context.screenWidth / 3.8,
+                            ),
                           ),
-                          detailsCard(
-                            count: data['orders_count'].toString(),
-                            title: "your orders",
-                            width: context.screenWidth / 3.4,
+                          Expanded(
+                            child: detailsCard(
+                              count: data['orders_count'].toString(),
+                              title: "Orders",
+                              width: context.screenWidth / 3.8,
+                            ),
                           ),
                         ],
                       ),
@@ -165,35 +199,43 @@ class ProfileScreen extends StatelessWidget {
 
                     Expanded(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        padding: const EdgeInsets.all(20),
-                        decoration: const BoxDecoration(
+                        margin: const EdgeInsets.only(top: 30),
+                        padding: const EdgeInsets.all(24),
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(35),
+                            topRight: Radius.circular(35),
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withAlpha(26),
+                              blurRadius: 10,
+                              offset: const Offset(0, -5),
+                            ),
+                          ],
                         ),
                         child: ListView.separated(
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
                           separatorBuilder: (context, index) => const Divider(
-                            color: Colors.grey,
-                            height: 20,
+                            color: Colors.black12,
+                            height: 32,
                           ),
                           itemCount: profileButtonList.length,
                           itemBuilder: (context, index) => ListTile(
                             contentPadding: EdgeInsets.zero,
                             leading: Container(
-                              padding: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: Colors.red.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(8),
+                                color: redColor.withAlpha(26),
+                                borderRadius: BorderRadius.circular(12),
                               ),
                               child: Image.asset(
                                 profileButtonIcon[index],
-                                width: 22,
+                                width: 24,
+                                height: 24,
                                 color: redColor,
                               ),
                             ),
@@ -201,10 +243,11 @@ class ProfileScreen extends StatelessWidget {
                                 .text
                                 .fontFamily(bold)
                                 .color(darkFontGrey)
+                                .size(16)
                                 .make(),
                             trailing: const Icon(
                               Icons.arrow_forward_ios,
-                              size: 16,
+                              size: 18,
                               color: darkFontGrey,
                             ),
                           ),
